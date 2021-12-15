@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ROUTES } from './routes';
+import Burger from './ui/burger';
+import './slider.css';
+import './index.css';
+
+import { PopUp } from './pages/pop-up';
+import { PROM_PAGES } from './pages/prom/pages';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>          
+      <PopUp { ...PROM_PAGES[0]}/>
+      <BrowserRouter>
+        <Burger/>
+        <Routes>
+
+          <Route  path="/main" element={ROUTES.main.component} />
+          <Route  path="/" element={ROUTES.main.component} />
+          <Route  path="/prom" element={ROUTES.prom.component} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
 export default App;
+
