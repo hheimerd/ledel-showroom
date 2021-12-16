@@ -26,6 +26,7 @@ const steps = [
 const links = [
   {
     path: 'prom',
+    initRotation: [-100,0,0],
     position: new Vector3(0, 2, 4),
   },
   {

@@ -5,14 +5,10 @@ import Burger from './ui/burger';
 import './slider.css';
 import './index.css';
 
-import { PopUp } from './pages/pop-up';
-import { PROM_PAGES } from './pages/prom/pages';
-
 
 function App() {
   return (
     <>          
-      <PopUp { ...PROM_PAGES[0]}/>
       <BrowserRouter>
         <Burger/>
         <Routes>
