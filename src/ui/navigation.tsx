@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import '../index.css'
 import burgerImage from '../img/burger.svg'
 import nextImage from '../img/next.png'
@@ -7,10 +7,11 @@ import infoImage from '../img/info.png'
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../routes';
 import ClickAwayListener from '@mui/base/ClickAwayListener';
-
-export default function Burger() {
+import { CameraContext } from '../App';
+export default function Navigation() {
 
   const [ navIsOpen, setNavIsOpen ] = useState<boolean>();
+  const cameraConfig = useContext(CameraContext)
 
   return (
       <div id="map-nav">
@@ -26,18 +27,14 @@ export default function Burger() {
             <div id="menu-nav">
               <ul>
                 {
-                  Object.entries(ROUTES).map(([path, route]) => 
-                    <li key={path}><Link className={"ll"} to={path}>{route.label}</Link></li>
+                  ROUTES.map((route) => 
+                    <li key={route.name}><Link className={"ll"} onClick={() => {
+                      cameraConfig.camera.rotation = route.defaultCameraRotation ?? 0;
+                      cameraConfig.camera.positionIdx = 0;
+                    }}to={route.name}>{route.label}</Link></li>
                   )
                 }
               </ul>
-              
-              <hr/>
-              <div className={"ll"}>Активные элементы</div>
-              <div>
-                <img className={"size"} src={nextImage} alt="next"/>
-                <img className={"size"} src={infoImage} alt="info"/>
-              </div>
             </div>
           </ClickAwayListener>
         }

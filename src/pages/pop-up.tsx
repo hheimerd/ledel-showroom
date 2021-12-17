@@ -38,7 +38,7 @@ export function PopUp(props: PopUpProps) {
 
 
 
-      {props.slides &&
+      {props.slides && props.slides.length > 0 &&
         <div className="projects">
           <h2>Проекты</h2>
           <div className="slider">

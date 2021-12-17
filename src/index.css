@@ -1,9 +1,7 @@
 body {
   margin: 0;
   background-color: gray;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Montserrat", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -26,8 +24,7 @@ body,
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: "Montserrat", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
 @font-face {
@@ -49,8 +46,8 @@ code {
   text-decoration: none;
   position: relative;
   left: 10px;
-  font-size: 10px;
   color: black;
+  font-size: 19px;
 }
 body {
   overflow: hidden;
@@ -64,8 +61,20 @@ canvas {
   height: 100% !important;
 }
 
+.tooltip {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  width: 200px;
+  font-size: 15px;
+  text-align: center;
+  opacity: 0.7
+}
+
 .popup {
   z-index: 100;
+  border-radius: 10px;
+  user-select: text;
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -80,6 +89,41 @@ canvas {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 2px;
+}
+::-webkit-scrollbar-button {
+  width: 21px;
+  height: 21px;
+}
+::-webkit-scrollbar-thumb {
+  background: #383838;
+  border: 0px none #121212;
+  border-radius: 17px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #212121;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 .name{
   font-size: 20px;
   font-weight: bold;
@@ -131,6 +175,7 @@ canvas {
 }
 .info p{
   font-family: PFBeatSansPro-regular;
+  font-size: 20px;
 }
 
 .video h2{
@@ -187,7 +232,7 @@ canvas {
   padding: 10px;
   font-family: PFBeatSansPro-SemiBold;
   position: relative;
-  font-size: 18px;
+  font-size: 19px;
 }
 .arrow{
   position: relative;
@@ -213,16 +258,25 @@ canvas {
   background: white;
   border-radius: 3px;
 }
+
+#menu-nav > ul {
+  padding: 10px;
+  width: 280px;
+}
+
 #menu-nav li{
   position: relative;
-  padding-top: 0px;
-  margin-bottom: 0px;
-  padding-bottom: 10px;
-  top: 0px;
-  font-size: 20px;
+  height: 35px;
+  padding: 10px;
   list-style-type: none;
   margin-right: 40px;
 }
+
+
+#menu-nav li a{
+  font-size: 1em;
+}
+
 
 #menu-nav li button{
   font-family: "PFBeatSansPro-SemiBold";

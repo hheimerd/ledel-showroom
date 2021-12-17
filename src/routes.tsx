@@ -1,34 +1,54 @@
-import Main from "./pages/main/index";
-import Prom from "./pages/prom";
+import Architecture from "./pages/architecture/architecture";
+import Commercial from "./pages/commercial/commercial";
+import Hall from "./pages/hall/hall";
+import Household from "./pages/household/household";
+import Industrial from "./pages/industrial/industrial";
+import Office from "./pages/office/office";
+import Street from "./pages/street/street";
 
-export const ROUTES = {
-  'main': {
-    component: <Main />,
-    label: 'Холл'
+// INDEX IS ID!
+export const ROUTES = [
+  {
+    name: '/hall',
+    component: <Hall />,
+    label: 'Холл',
+    defaultCameraRotation: 180
   },
-  'prom': {
-    component: <Prom />,
-    label: 'Промышленное освещение'
+  {
+    name: '/industrial',
+    component: <Industrial />,
+    label: 'Промышленное освещение',
+    defaultCameraRotation: 180
   },
-  'street': {
-    component: <></>,
-    label: 'Уличное освещение'
+  {
+    name: '/street',
+    component: <Street/>,
+    label: 'Уличное освещение',
+    defaultCameraRotation: 180
   },
-  'office': {
-    component: <></>,
-    label: 'Офисное освещение'
+  {
+    name: '/office',
+    component: <Office />,
+    label: 'Офисное освещение',
+    defaultCameraRotation: 180
   },
-  'comm': {
-    component: <></>,
-    label: 'Торговое освещение'
+  {
+    name: '/commercial',
+    component: <Commercial/>,
+    label: 'Торговое освещение',
+    defaultCameraRotation: 180
   },
-  'bit': {
-    component: <></>,
-    label: 'Бытовое освещение'
+  {
+    name: '/household',
+    component: <Household />,
+    label: 'Бытовое освещение',
+    defaultCameraRotation: 5
   },
-  'arch': {
-    component: <></>,
-    label: 'Архитектурное освещение'
+  {
+    name: '/architecture',
+    component: <Architecture />,
+    label: 'Архитектурное освещение',
+    defaultCameraRotation: 10
   },
-}
+]
 

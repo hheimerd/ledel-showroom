@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { ReactThreeFiber } from '@react-three/fiber';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 

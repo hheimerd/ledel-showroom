@@ -1,4 +1,4 @@
-import { Suspense, useMemo, useState } from 'react'
+import { Suspense, useContext, useMemo, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Box, PerspectiveCamera } from '@react-three/drei';
 import { createSearchParams, useNavigate, useSearchParams } from "react-router-dom";
@@ -8,59 +8,46 @@ import { Vector3 } from 'three/src/math/Vector3';
 import { FloorPoint, InfoPoint, LinkPoint } from '../helpers/geometry';
 import { Euler } from 'three/src/math/Euler';
 import { PopUp, PopUpProps } from './pop-up';
+import { CameraContext } from '../App';
 
 export const USER_HEITHT = 2;
 
-export type ISteps = {
+export type TSteps = {
   userPosition: Vector3,
   spherePath: string,
   pointPosition: Vector3,
 }
 
-export type I3DLink = {
+export type T3DLink = {
   position: Vector3,
   path: string,
   rotation?: Euler,
-  initRotation?: number[],
+  initRotation?: number,
   initPosition?: number,
 }
 
-export type IInfo = {
+export type TInfo = {
   position: Vector3,
   popup: PopUpProps,
   rotation?: Euler,
 }
 
 export default function BaseGallery(props: {
-  steps: ISteps[],
-  links?: I3DLink[],
-  info?: IInfo[],
+  steps: TSteps[],
+  links?: T3DLink[],
+  stands?: TInfo[],
   [key: string]: any
 }) {
-  const [positionIdx, setPositionIdx] = useState<number>(0)
+  const cameraConfig = useContext(CameraContext)
+
+  const [positionIdx, setPositionIdx] = useState<number>(cameraConfig.camera.positionIdx)
   const [popupIdx, setPopupIdx] = useState<number>(-1)
-  const position = props.steps[positionIdx].userPosition.clone();
   const nav = useNavigate();
+  const position = props.steps[positionIdx].userPosition.clone();
+
 
   const spherePath = props.steps[positionIdx].spherePath;
-  const [searchParams, setSearchParams] = useSearchParams();
   let startPosition = new Vector3(100, 0, 0)
-
-  if (searchParams.has('rotation')) {
-    const args = searchParams.get('rotation')?.split(',').map(i => +i)!
-    if (args.length === 3)
-      startPosition = new Vector3(args[0], args[1], args[2])
-    searchParams.delete('rotation')
-  }
-
-  if (searchParams.has('rotation')) {
-    const initPosition = parseInt(searchParams.get('position')!) || 0;
-    if (initPosition !== positionIdx) { 
-      setPositionIdx(initPosition)
-      searchParams.delete('position')
-    }
-  }
-  
 
   const floorPoints = useMemo(() => (
     props.steps.map((st, i) => (
@@ -72,12 +59,9 @@ export default function BaseGallery(props: {
     props.links?.map((link, i) => (
       <LinkPoint
         onClick={() => {
-          const query = {} as any
-          if (link.initRotation)
-            query['rotation'] = link.initRotation.toString()
-          if (link.initPosition)
-            query['position'] = link.initPosition+''
-          nav({pathname: link.path,search: `?${createSearchParams(query)}`});
+          cameraConfig.camera.rotation = link.initRotation ?? 0
+          cameraConfig.camera.positionIdx = link.initPosition ?? 0
+          nav(link.path);
         }}
         rotation={link.rotation || new Euler(0, 0, 0)}
         position={link.position.clone()}
@@ -88,7 +72,7 @@ export default function BaseGallery(props: {
   ), [props.links])
 
   const infoPoints = useMemo(() => (
-    props.info?.map((link, i) => (
+    props.stands?.map((link, i) => (
       <InfoPoint
         onClick={() => setPopupIdx(i)}
         rotation={link.rotation || new Euler(0, 0, 0)}
@@ -96,15 +80,18 @@ export default function BaseGallery(props: {
         key={i}
       />
     ))
-  ), [props.info])
+  ), [props.stands])
 
   // setSearchParams({ position: '100,0,0' })
 
   return (
     <>
-      {popupIdx >= 0 &&
-        <PopUp key={props.info?.[popupIdx]?.popup.title} {...props.info?.[popupIdx]?.popup as PopUpProps} close={() => setPopupIdx(-1)} />
-
+      {popupIdx >= 0 && props.stands?.[popupIdx] &&
+        <PopUp 
+          key={props.stands[popupIdx].popup.title}
+          {...props.stands[popupIdx].popup as PopUpProps}
+          close={() => setPopupIdx(-1)} 
+          />
       }
       <Canvas >
         <PerspectiveCamera position={position} />
