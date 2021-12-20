@@ -1,4 +1,4 @@
-import BaseGallery, { T3DLink, TSteps, USER_HEITHT } from "../base-gallery";
+import BaseGallery, { T3DLink, USER_HEITHT } from "../base-gallery";
 import sphere1 from '../../spheres/hall/hall_1.png';
 import sphere2 from '../../spheres/hall/hall_2.png';
 import sphere3 from '../../spheres/hall/hall_3.png';
@@ -15,32 +15,30 @@ const steps = generateSteps(spheres, -8, USER_HEITHT)
 
 const links = [
   {
-    path: 'commercial',
-    initRotation: 180,
+    path: '/commercial',
     position: new Vector3(0, 2, 4),
   },
   {
-    path: 'architecture',
-    position: new Vector3(0, 2, -4),
+    path: '/architecture',
+    initRotation: 180,
+    position: new Vector3(0, 2, -4.3),
   },
   {
-    path: 'household', 
+    path: '/household', 
+    initRotation: 180,
     position: new Vector3(-8, 2, 4),
   },
   {
-    path: 'street',
-    initRotation: 180,
-    position: new Vector3(-8, 2, -4),
+    path: '/street',
+    position: new Vector3(-8, 2, -4.3),
   },
   {
-    path: 'industrial',
-    initRotation: 180,
+    path: '/industrial',
     position: new Vector3(-16, 2, 4),
   },
   {
-    path: 'office',
-    initRotation: 180,
-    position: new Vector3(-16, 2, -4),
+    path: '/office',
+    position: new Vector3(-16, 2, -4.3),
   },
 ] as T3DLink[]
 

@@ -2,13 +2,14 @@ import { Vector3 } from "three/src/math/Vector3";
 import { TInfo as TStand, TSteps } from "./base-gallery";
 import { PopUpProps } from "./pop-up";
 
-export function generateSteps(spheres: string[], stepLength: number, userHeitht: number) {
+export function generateSteps(spheres: string[], stepLength: number, userHeitht: number, thumbs?: string[]) {
   const steps = [] as TSteps[];
 
   for (let i = 0; i < spheres.length; i++) {
     steps.push({
       userPosition: new Vector3(i * stepLength, userHeitht, 0),
       spherePath: spheres[i],
+      sphereThumb: thumbs ? thumbs[i] : undefined,
       pointPosition: new Vector3(i * stepLength, 0, 0)
     })
   }

@@ -43,18 +43,7 @@ export function FloorPoint(props = { position: new Vector3(0, 0, 0) } as any) {
 }
 
 
-export function LinkPoint(props: { position: Vector3, rotation?: Euler, [key: string]: any }) {
-  return (
-    <Point3D
-      {...props}
-      path={'/models/link.glb'}
-      scale={[.3, .3, .3]}
-    />
-  )
-}
-
-
-export function InfoPoint(props: { position: Vector3, rotation?: Euler, [key: string]: any }) {
+export function LinkWall(props: { position: Vector3, rotation?: Euler, [key: string]: any, text?: string, scale?: Vector3}) {
   const [hovered, setHovered] = useState<boolean>(false)
   useCursor(hovered, /*'pointer', 'auto'*/)
   const { mouse, size } = useThree()
@@ -63,16 +52,15 @@ export function InfoPoint(props: { position: Vector3, rotation?: Euler, [key: st
     <>
       <Box
         {...props}
-        scale={[2, 4, .1]}
+        scale={props.scale ?? [2, 4, .2]}
         onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)}
       >
         <meshStandardMaterial opacity={0} color="white" transparent={true} />
-        {hovered &&
+        { props.text && hovered &&
           <Html center calculatePosition={() => {
             return [(((mouse.x + 1) / 2)) * size.width, ((1 - mouse.y) / 2) * size.height + 100]
-
           }}>
-            <p className="tooltip">Нажмите на стенд, чтобы узнать о светильнике больше</p>
+            <p className="tooltip">{props.text}</p>
           </Html>
         }
       </Box>

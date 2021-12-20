@@ -1,42 +1,24 @@
-import { extend, useFrame, useThree } from "@react-three/fiber";
-import { useContext, useEffect, useRef, useState } from "react";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { OrbitControls } from "@react-three/drei";
+import { useThree } from "@react-three/fiber";
+import { useContext, useEffect } from "react";
 import { Vector2 } from "three/src/math/Vector2";
 import { Vector3 } from "three/src/math/Vector3";
 import { CameraContext } from '../App';
-import { USER_HEITHT } from "../pages/base-gallery";
 
-extend({ OrbitControls })
 
 export function Controls(props: { position: Vector3, [key: string]: any }) {
   const { camera, gl } = useThree()
-  const ref = useRef<OrbitControls>()
 
   const cameraConf = useContext(CameraContext)
-  const offset = degToVec2(cameraConf.camera.rotation)
-  const initial = new Vector3(offset.x * 100, 0, offset.y * 100)
-  console.log(initial);
-  
-  const [prevTarget, setTarget] = useState<Vector3>(initial);
 
   useEffect(() => {
-    if (!ref.current) return;
-
-    if (prevTarget !== props.position) {
-
-      if (!prevTarget) return
-      const prevPosition = camera.position;
-
-      const diff = new Vector3().subVectors(prevPosition, prevTarget)
-      const newPosition = new Vector3().addVectors(props.position, diff)
-      camera.position.set(newPosition.x, newPosition.y, newPosition.z)
-      setTarget(props.position)
-    }
+    const offset = degToVec2(cameraConf.camera.rotation)
+    const initial = new Vector3(offset.x * 100, 0, offset.y * 100)
+    camera.position.set(initial.x, initial.y, initial.z)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.position])
+  }, [cameraConf.camera.rotation]) 
 
-  useFrame(() => ref.current?.update())
-  return <orbitControls ref={ref} target={props.position}  {...props} args={[camera, gl.domElement]} />
+  return <OrbitControls target={props.position}  {...props} args={[camera, gl.domElement]} />
 }
 
 

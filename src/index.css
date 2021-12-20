@@ -13,7 +13,6 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #171720;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -36,6 +35,17 @@ code {
 }
 .withFont{
   font-family: PFBeatSansPro-SemiBold;
+}
+
+.video {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.video iframe {
+  width: 100%;
+  height: 280px;
 }
 
 .video h2{
@@ -264,6 +274,82 @@ canvas {
   width: 280px;
 }
 
+#preloader {
+  z-index: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  transition: .3s;
+  background: gray;
+}
+
+
+#preloader div {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  height:100px;
+  width: 100px;
+  margin: auto;
+}
+
+
+#preloader img {
+  margin: auto;
+  height:30px;
+  width: 30px;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.welcome-popup {
+  background-color:white;
+  border-radius: 10px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  height: 450px;
+  width: 350px;
+  z-index: 1;
+  text-align: center;
+  padding: 15px;
+}
+
+.welcome-popup .close {
+  font-size: 40px;
+  cursor: pointer;
+  color: red;
+  position: absolute;
+  top: -20px;
+  right: 10px;
+}
+
+.info-button {
+  position: absolute;
+  z-index: 1;
+  right: 10px;
+  top: 10px;
+  height: 50px;
+  width: 50px;
+}
+
+.info-button img {
+  object-fit:cover;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
 #menu-nav li{
   position: relative;
   height: 35px;
@@ -271,6 +357,8 @@ canvas {
   list-style-type: none;
   margin-right: 40px;
 }
+
+
 
 
 #menu-nav li a{
@@ -295,7 +383,7 @@ canvas {
 }
 
 
-.slider {
+.slider, .video {
   margin-bottom: 30px;
 }
 

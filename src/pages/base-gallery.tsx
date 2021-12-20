@@ -1,20 +1,23 @@
 import { Suspense, useContext, useMemo, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { Box, PerspectiveCamera } from '@react-three/drei';
-import { createSearchParams, useNavigate, useSearchParams } from "react-router-dom";
+import { useProgress } from '@react-three/drei';
+import { useNavigate } from "react-router-dom";
 import { Controls } from '../helpers/controls'
 import { VRSphere } from '../helpers/sphere'
 import { Vector3 } from 'three/src/math/Vector3';
-import { FloorPoint, InfoPoint, LinkPoint } from '../helpers/geometry';
+import { FloorPoint, LinkWall } from '../helpers/geometry';
 import { Euler } from 'three/src/math/Euler';
 import { PopUp, PopUpProps } from './pop-up';
 import { CameraContext } from '../App';
+import { ROUTES } from '../routes';
+import { Preloader } from '../ui/preloader';
 
 export const USER_HEITHT = 2;
 
 export type TSteps = {
   userPosition: Vector3,
   spherePath: string,
+  sphereThumb?: string,
   pointPosition: Vector3,
 }
 
@@ -47,6 +50,8 @@ export default function BaseGallery(props: {
 
 
   const spherePath = props.steps[positionIdx].spherePath;
+  const sphereThumb = props.steps[positionIdx].sphereThumb;
+  
   let startPosition = new Vector3(100, 0, 0)
 
   const floorPoints = useMemo(() => (
@@ -56,34 +61,41 @@ export default function BaseGallery(props: {
   ), [props.steps])
 
   const linkPoints = useMemo(() => (
-    props.links?.map((link, i) => (
-      <LinkPoint
+    props.links?.map((link, i) => {
+      const location = ROUTES.find(r => r.name === link.path)
+
+      return (
+      <LinkWall
         onClick={() => {
           cameraConfig.camera.rotation = link.initRotation ?? 0
           cameraConfig.camera.positionIdx = link.initPosition ?? 0
           nav(link.path);
         }}
+        scale={new Vector3(2.3, 4, .1)}
         rotation={link.rotation || new Euler(0, 0, 0)}
+        text={`Нажмите, чтобы перейти в ${location?.label ?? 'эту локацию'}`}
         position={link.position.clone()}
         key={i}
       />
-    ))
+    )})
     // eslint-disable-next-line react-hooks/exhaustive-deps
   ), [props.links])
 
   const infoPoints = useMemo(() => (
     props.stands?.map((link, i) => (
-      <InfoPoint
+      <LinkWall
         onClick={() => setPopupIdx(i)}
         rotation={link.rotation || new Euler(0, 0, 0)}
         position={link.position.clone()}
+        text="Нажмите на стенд, чтобы узнать о светильнике больше"
         key={i}
       />
     ))
   ), [props.stands])
 
   // setSearchParams({ position: '100,0,0' })
-
+  const { progress } = useProgress()
+    
   return (
     <>
       {popupIdx >= 0 && props.stands?.[popupIdx] &&
@@ -93,12 +105,20 @@ export default function BaseGallery(props: {
           close={() => setPopupIdx(-1)} 
           />
       }
+      <Preloader progress={progress}  />
+      
       <Canvas >
-        <PerspectiveCamera position={position} />
         <hemisphereLight position={[0, 10, 0]} intensity={.4} color={'white'} castShadow />
         <Controls position={position} enableDamping maxDistance={.01} dampingFactor={0.3} initPosition={startPosition} />
-        <Suspense fallback={null}>
+        <Suspense fallback={
+          <Suspense fallback={null}>
+            { sphereThumb && <VRSphere texturePath={sphereThumb} position={position} /> }
+          </Suspense>
+        }>
           <VRSphere texturePath={spherePath} position={position} />
+        </Suspense>
+        
+        <Suspense fallback={null}>
           {infoPoints}
           {floorPoints}
           {linkPoints}

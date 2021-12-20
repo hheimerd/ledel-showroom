@@ -2,8 +2,6 @@
 import { useContext, useState } from 'react';
 import '../index.css'
 import burgerImage from '../img/burger.svg'
-import nextImage from '../img/next.png'
-import infoImage from '../img/info.png'
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../routes';
 import ClickAwayListener from '@mui/base/ClickAwayListener';

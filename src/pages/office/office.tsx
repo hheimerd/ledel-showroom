@@ -1,4 +1,4 @@
-import BaseGallery, { T3DLink, TInfo, TSteps, USER_HEITHT } from "../base-gallery";
+import BaseGallery, { T3DLink, USER_HEITHT } from "../base-gallery";
 import sphere2 from '../../spheres/office/office_back_2.png';
 import sphere3 from '../../spheres/office/office_back_3.png';
 import sphere4 from '../../spheres/office/office_back_4.png';
@@ -26,7 +26,7 @@ const stands = generateStands(info as PopUpProps[], stepLength, 2, 3.2,-3.2, tru
 const links = [
   {
     path: '/',
-    initRotation: 90,
+    initRotation: 270,
     initPosition: 2,
     position: new Vector3(3, 2, 0),
     rotation: new Euler(0, Math.PI / 2, 0)

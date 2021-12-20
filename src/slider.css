@@ -120,7 +120,7 @@
     z-index: 10;
     top: calc(50% - (0.5 * var(--control-button-height)));
     border: none;
-    background-color: var(--control-button-background);
+    background: rgba(255, 255, 255, 0.171);
     color: #fff;
     cursor: pointer; }
     .awssld__controls button .awssld__controls__arrow-left,
@@ -165,9 +165,14 @@
               transition-duration: 300ms;
       -webkit-transform: translate3d(0, 0, 0);
               transform: translate3d(0, 0, 0); }
+    .awssld__controls button:hover {
+      transition: .3s linear;
+      background: rgba(255, 255, 255, 0.9);}
   .awssld__next {
+    border-radius: 10px 0 0 10px;
     right: 0; }
   .awssld__prev {
+    border-radius: 0 10px 10px 0;
     left: 0; }
   .awssld__box {
     z-index: 1;
@@ -324,7 +329,7 @@
     .awssld__controls__arrow-left--active:before {
       -webkit-transform: rotate(90deg) translate3d(-50%, 0, 0) !important;
               transform: rotate(90deg) translate3d(-50%, 0, 0) !important; }
-  .awssld__controls button:hover .awssld__controls__arrow-left:before {
+  /* .awssld__controls button:hover .awssld__controls__arrow-left:before {
     opacity: 1;
     -webkit-transform: rotate(30deg);
             transform: rotate(30deg); }
@@ -339,7 +344,7 @@
   .awssld__controls button:hover .awssld__controls__arrow-right:after {
     opacity: 1;
     -webkit-transform: rotate(30deg);
-            transform: rotate(30deg); }
+            transform: rotate(30deg); } */
   .awssld__timer {
     --timer-delay: 2000ms;
     --timer-release: 200ms;

@@ -6,7 +6,7 @@ import AwesomeSlider from 'react-awesome-slider'
 export type PopUpProps = {
   title: string
   description?: string,
-  video?: string,
+  videos?: string[],
   slides?: { href?: string, src: string }[],
   link: string,
   close?: () => void
@@ -26,12 +26,23 @@ export function PopUp(props: PopUpProps) {
         </div>
       }
 
-      {props.video &&
+      {props.videos &&
         <div className="video">
           <h2>Видео</h2>
-          {props.video.includes('youtube')
-            ? <iframe src={props.video} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-            : <video src={props.video} className="video-player" controls></video>
+          <AwesomeSlider>
+              {
+                props.videos.map((src) => (
+                  <div className="slider-video-wrapper">
+                    {
+                      src.includes('youtube')
+                        ? <iframe className="slider-video" src={src} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                        : <video src={src} className="slider-video" controls></video>
+                    }
+                  </div>
+                ))
+              }
+            </AwesomeSlider>
+          {
           }
         </div>
       }

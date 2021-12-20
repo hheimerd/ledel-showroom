@@ -23,7 +23,7 @@ const stands = generateStands(info as unknown as PopUpProps[], stepLength, 2, -3
 const links = [
   {
     path: '/',
-    initRotation: 270,
+    initRotation: 90,
     initPosition: 1,
     position: new Vector3(-3, 2, 0),
     rotation: new Euler(0, Math.PI / 2, 0)
