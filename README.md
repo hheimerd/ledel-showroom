@@ -1,46 +1,56 @@
-# Getting Started with Create React App
+# Ledel шоурум
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+-----
 
-## Available Scripts
+## Запуск приложения
 
-In the project directory, you can run:
+Для запуска приложения требуется:
 
-### `yarn start`
+* Установить [Node js](https://nodejs.org/en/)
+* Открыть директорию с исходными файлами через `терминал` (CMD, PowerShell)
+* Ввести в терминале `npm run start`
+* Зайти в браузер и ввести адрес localhost:3000
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Для создания сборки вместо команды `npm run start` запустите команду `npm run build`. Проект будет собран в директорию build в корневой директории проекта. **ТОЛЬКО** Эту папку нужно перенести на сервер в папку public (или public_html), куда направляются публичные запросы вашего сервера.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Пример настройки сервера для Nginx:
 
-### `yarn test`
+``` nginx
+server {
+  listen 80;
+  server_name ваш_домен.com;
+  root /путь/до/public_html;
+  index index.html;
+  
+  location / {
+    try_files $uri /index.html;
+  }
+}
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Изменение контента сайта
 
-### `yarn build`
+В директориях `src/pages/название_страницы` лежат файлы с расширением `.json`. Внутри этих файлов текст, название и ссылки на различные ресурсы. Формат файла
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+``` json
+{
+    "title":"Название",
+    "description":"Описание",
+    "link":"ссылка на товар",
+    "videos": [
+      "ссылка на видео формата https://www.youtube.com/embed/*id*",
+      "или ссылка на локальные файлы в папке public, например video/my_video.mp4"
+    ],
+    "slides":[
+      {
+        "href":"ссылка на страницу, на которую нужно перенаправить",
+        "src":"ссылка на изображение слайдера (images/image.png) или изображение из сети http://image.com/img.png"
+      }, 
+      {
+        "src": "видео в офрмате https://www.youtube.com/embed/"
+      }
+    ]
+  },
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Экранировать слэши ( \\ / ) не требуется. Переносы строк не учитываются.

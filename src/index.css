@@ -43,11 +43,6 @@ code {
   flex-direction: column;
 }
 
-.video iframe {
-  width: 100%;
-  height: 280px;
-}
-
 .video h2{
   font-family: PFBeatSansPro-SemiBold;
 }
@@ -82,6 +77,7 @@ canvas {
 }
 
 .popup {
+  box-shadow: 0 0 18px;
   z-index: 100;
   border-radius: 10px;
   user-select: text;
@@ -92,6 +88,7 @@ canvas {
   background: white;
   width: 500px;
   height: 800px;
+  max-height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
   top: 50%;
@@ -210,6 +207,9 @@ canvas {
   width: 100%;
 }
 
+.slider img {
+  cursor: pointer;
+}
 
 .footer {
   margin-top: auto;
@@ -246,6 +246,9 @@ canvas {
 }
 .arrow{
   position: relative;
+  height:100%;
+  max-height: 50px;
+  object-fit: cover;
 }
 
 .link{
@@ -257,13 +260,14 @@ canvas {
 
 #map-nav {
   position: absolute;
-  z-index: 1000;
+  z-index: 10;
   top: 40px;
   left: 40px;
 }
 
 #menu-nav {
   position: relative;
+  box-shadow: 0 0 10px;
   top: 50px;
   background: white;
   border-radius: 3px;
@@ -313,17 +317,19 @@ canvas {
 }
 
 .welcome-popup {
-  background-color:white;
+  box-shadow: 0 0 5px;
+  background-color: white;
   border-radius: 10px;
   position: absolute;
   right: 10px;
   top: 10px;
-  height: 450px;
-  width: 350px;
-  z-index: 1;
-  text-align: center;
+  height: 417px;
+  width: 274px;
+  z-index: 20;
+  text-align: left;
   padding: 15px;
 }
+
 
 .welcome-popup .close {
   font-size: 40px;
@@ -353,7 +359,7 @@ canvas {
 #menu-nav li{
   position: relative;
   height: 35px;
-  padding: 10px;
+  padding: 5px;
   list-style-type: none;
   margin-right: 40px;
 }

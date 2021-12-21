@@ -6,6 +6,13 @@ import sphere5 from '../../spheres/industrial/prom_back_5.png';
 import sphere6 from '../../spheres/industrial/prom_back_6.png';
 import sphere7 from '../../spheres/industrial/prom_back_7.png';
 
+import t_sphere2 from '../../spheres/industrial/thumb/prom_back_2.png';
+import t_sphere3 from '../../spheres/industrial/thumb/prom_back_3.png';
+import t_sphere4 from '../../spheres/industrial/thumb/prom_back_4.png';
+import t_sphere5 from '../../spheres/industrial/thumb/prom_back_5.png';
+import t_sphere6 from '../../spheres/industrial/thumb/prom_back_6.png';
+import t_sphere7 from '../../spheres/industrial/thumb/prom_back_7.png';
+
 import { Vector3 } from "three/src/math/Vector3";
 import { Euler } from "three/src/math/Euler";
 
@@ -24,7 +31,16 @@ const spheres = [
   sphere7,
 ] 
 
-const steps = generateSteps(spheres, stepLength, USER_HEITHT)
+const thumbs = [
+  t_sphere2,
+  t_sphere3,
+  t_sphere4,
+  t_sphere5,
+  t_sphere6,
+  t_sphere7,
+]
+
+const steps = generateSteps(spheres, stepLength, USER_HEITHT, thumbs)
 
 const stands = generateStands(info as PopUpProps[], stepLength, 2, 3,-3.2)
 

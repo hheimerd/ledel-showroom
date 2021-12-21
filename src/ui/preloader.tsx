@@ -6,7 +6,7 @@ export function Preloader(props: { progress: number, [key: string]: any}) {
   <div id="preloader" {...props}>
     <div>
       <img src={loaderImage} alt="Loading" />
-      {props.progress} % loaded
+      {Math.floor(props.progress)} % loaded
     </div>
   </div>
   )

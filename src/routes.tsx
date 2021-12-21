@@ -12,6 +12,7 @@ export const ROUTES = [
     name: '/',
     component: <Hall />,
     label: 'Холл',
+    defaultCameraRotation: 180
   },
   {
     name: '/industrial',

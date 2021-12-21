@@ -1,4 +1,4 @@
-import { Suspense, useContext, useMemo, useState } from 'react'
+import { Suspense, useContext, useMemo, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { useProgress } from '@react-three/drei';
 import { useNavigate } from "react-router-dom";
@@ -60,6 +60,11 @@ export default function BaseGallery(props: {
     ))
   ), [props.steps])
 
+  const canvasRef = useRef<HTMLCanvasElement>()
+
+  console.log('f');
+  
+
   const linkPoints = useMemo(() => (
     props.links?.map((link, i) => {
       const location = ROUTES.find(r => r.name === link.path)
@@ -95,7 +100,6 @@ export default function BaseGallery(props: {
 
   // setSearchParams({ position: '100,0,0' })
   const { progress } = useProgress()
-    
   return (
     <>
       {popupIdx >= 0 && props.stands?.[popupIdx] &&
@@ -107,9 +111,9 @@ export default function BaseGallery(props: {
       }
       <Preloader progress={progress}  />
       
-      <Canvas >
+      <Canvas ref={canvasRef as any}>
         <hemisphereLight position={[0, 10, 0]} intensity={.4} color={'white'} castShadow />
-        <Controls position={position} enableDamping maxDistance={.01} dampingFactor={0.3} initPosition={startPosition} />
+        <Controls canvasRef={canvasRef} enableZoom={false} position={position} enableDamping maxDistance={.01} dampingFactor={0.3} initPosition={startPosition} />
         <Suspense fallback={
           <Suspense fallback={null}>
             { sphereThumb && <VRSphere texturePath={sphereThumb} position={position} /> }

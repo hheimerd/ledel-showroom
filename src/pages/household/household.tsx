@@ -2,6 +2,11 @@ import BaseGallery, { T3DLink, USER_HEITHT } from "../base-gallery";
 import sphere2 from '../../spheres/household/bit_front_2.png';
 import sphere3 from '../../spheres/household/bit_front_3.png';
 import sphere4 from '../../spheres/household/bit_front_4.png';
+
+import t_sphere2 from '../../spheres/household/thumb/bit_front_2.png';
+import t_sphere3 from '../../spheres/household/thumb/bit_front_3.png';
+import t_sphere4 from '../../spheres/household/thumb/bit_front_4.png';
+
 import { Vector3 } from "three/src/math/Vector3";
 import { Euler } from "three/src/math/Euler";
 import info from "./household.json"
@@ -16,7 +21,13 @@ const spheres = [
   sphere4,
 ] 
 
-const steps = generateSteps(spheres, stepLength, USER_HEITHT)
+const thumbs = [
+  t_sphere2,
+  t_sphere3,
+  t_sphere4,
+]
+
+const steps = generateSteps(spheres, stepLength, USER_HEITHT, thumbs)
 
 const stands = generateStands(info as unknown as PopUpProps[], stepLength, 2, -3.5, 3)
 
