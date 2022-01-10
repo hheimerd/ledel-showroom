@@ -48,7 +48,6 @@ export default function BaseGallery(props: {
   const nav = useNavigate();
   const position = props.steps[positionIdx].userPosition.clone();
 
-
   const spherePath = props.steps[positionIdx].spherePath;
   const sphereThumb = props.steps[positionIdx].sphereThumb;
   
@@ -61,9 +60,6 @@ export default function BaseGallery(props: {
   ), [props.steps])
 
   const canvasRef = useRef<HTMLCanvasElement>()
-
-  console.log('f');
-  
 
   const linkPoints = useMemo(() => (
     props.links?.map((link, i) => {
@@ -111,8 +107,8 @@ export default function BaseGallery(props: {
       }
       <Preloader progress={progress}  />
       
-      <Canvas ref={canvasRef as any}>
-        <hemisphereLight position={[0, 10, 0]} intensity={.4} color={'white'} castShadow />
+      <Canvas ref={canvasRef as any} shadows={true}>
+        <ambientLight rotation={[1,1,1]} position={[0, 10, 0]} intensity={3} color={'white'} castShadow />
         <Controls canvasRef={canvasRef} enableZoom={false} position={position} enableDamping maxDistance={.01} dampingFactor={0.3} initPosition={startPosition} />
         <Suspense fallback={
           <Suspense fallback={null}>

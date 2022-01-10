@@ -1,4 +1,4 @@
-import { Box, Html } from "@react-three/drei";
+import { Box, Html, useGLTF } from "@react-three/drei";
 import { useCursor } from "@react-three/drei/web/useCursor";
 import { useLoader, useThree } from "@react-three/fiber";
 import { useMemo, useState } from "react";
@@ -25,6 +25,8 @@ export function Point3D(props: { position: Vector3, rotation?: Euler, scale: num
 
   return (
     <LoadMesh
+      castShadow
+      receiveShadow
       onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)}
       {...props}
     />

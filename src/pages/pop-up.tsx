@@ -24,7 +24,7 @@ export function PopUp(props: PopUpProps) {
       {props.description &&
         <div className="info">
           <h2>Описание</h2>
-          <p>{props.description}</p>
+          <p dangerouslySetInnerHTML={{__html:props.description}}></p>
         </div>
       }
 

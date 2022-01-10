@@ -1,6 +1,6 @@
 import ClickAwayListener from '@mui/base/ClickAwayListener/ClickAwayListener'
 import { useState } from 'react'
-import infoImage from '../img/info.png'
+import infoImage from '../img/info.svg'
 
 export function Info() {
   const [infoIsVisible, setInfoIsVisible] = useState(true)
