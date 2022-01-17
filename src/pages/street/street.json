@@ -6,7 +6,8 @@
     "videos": [
       "https://www.youtube.com/embed/QF9o3gTNYZc"
     ],
-    "slides":null
+    "slides":null,
+    "modelUrl": "/models/GLB/Street-9M.glb"
   },
   {
     "title":"Street X1",
@@ -29,21 +30,24 @@
     "videos": [
       "https://www.youtube.com/embed/8HlDWwgBCg8",
       "https://www.youtube.com/embed/dSyORLSWMgQ"
-    ]
+    ],
+    "modelUrl": "/models/GLB/Street-x1.glb"
   },
   {
     "title":"L-street Turbine GP",
     "description":"Светильник L-street Turbine GP предназначен для освещения охранного периметра,  обладает широкой диаграммой и обеспечивает засветку, подходящую  для оптимальной работы камер видеонаблюдения. <br><br> Имеет два режима работы: \"Охрана\" и \"Тревога\". <br><br> Светильник состоит из трех стандартных корпусов L-street 40 Turbine,  каждый из которых изготовлен методом экструзии и имеет специальные участки  для усиления естественной конвекции. Это позволяет позволяет  снизить массу светильника до 3,5 кг  и обеспечить оптимальный  температурный режим работы светодиодов и электронных компонентов. <br><br> Светильник разрабатывался с учетом всех требований по защите от грязи и ветровой нагрузки",
     "link":"https://ledel.ru/products/street-light/l-street-40-turbine-gp.html",
     "videos":null,
-    "slides":null
+    "slides":null,
+    "modelUrl": "/models/GLB/Street-GP.glb"
   },
   {
     "title":"Street X1 Pro",
     "description":"Светодиодный светильник Street X1 Pro предназначен для освещения автомобильных дорог  категорий А,Б,В (согласно СП 52.13330.2016), городских улиц,  а также для внешнего освещения предприятий и торговых центров. <br><br> Обладет энергоэффективностью до 180 лм\/Вт. <br><br> Литой корпус светильника выполнен из сплава алюминия.  Благодаря функциональным ребрам создается вертикальная  сквозная конвекция, направляющая воздух на корпус светильника,  что позволяет добиться невероятного теплоотвода при минимальных габаритах и массе. <br><br> Быстросъемный драйвер собственной разработки  адаптирован под российские энергетические сети в соответствии с  нормативами ГОСТ 13109 и гарантирует срок эксплуатации светильника 100 000 часов",
     "link":"https://ledel.ru/products/street-light/street-x1-pro.html",
     "videos":null,
-    "slides":null
+    "slides":null,
+    "modelUrl": "/models/GLB/Street-X1-PRO.glb"
   },
   {
     "title":"L-street",
@@ -67,7 +71,8 @@
         "href":"https:\/\/ledel.ru\/projects\/ulichnoe-osveshchenie\/osveshchenie-sela-.html",
         "src":"photos\/L-street_4.jpg"
       }
-    ]
+    ],
+    "modelUrl": "/models/GLB/Street.glb"
   },
   {
     "title":"L-street Turbine",
@@ -87,6 +92,7 @@
         "href":"https:\/\/ledel.ru\/projects\/osveshchenie-obektov-transportnoy-infrastruktury\/osveshchenie-zheleznodorozhnoy-platformy.html",
         "src":"photos\/LstreetTurbine3.jpg"
       }
-    ]
+    ],
+    "modelUrl": "/models/GLB/Street-Turbine.glb"
   }
 ]

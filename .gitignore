@@ -11,8 +11,6 @@
 # production
 /build
 
-public/photos
-src/spheres
 build.zip
 
 # misc

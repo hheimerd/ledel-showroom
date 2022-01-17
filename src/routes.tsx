@@ -15,33 +15,33 @@ export const ROUTES = [
     defaultCameraRotation: 180
   },
   {
-    name: '/industrial',
+    name: '/industrial-light',
     component: <Industrial />,
     label: 'Промышленное освещение',
   },
   {
-    name: '/street',
-    component: <Street/>,
+    name: '/street-light',
+    component: <Street />,
     label: 'Уличное освещение',
   },
   {
-    name: '/office',
+    name: '/office-light',
     component: <Office />,
     label: 'Офисное освещение',
   },
   {
-    name: '/commercial',
-    component: <Commercial/>,
+    name: '/trade-light',
+    component: <Commercial />,
     label: 'Торговое освещение',
   },
   {
-    name: '/household',
+    name: '/home-light',
     component: <Household />,
     label: 'Бытовое освещение',
     defaultCameraRotation: 185
   },
   {
-    name: '/architecture',
+    name: '/architectural-light',
     component: <Architecture />,
     label: 'Архитектурное освещение',
     defaultCameraRotation: 190

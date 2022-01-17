@@ -29,7 +29,7 @@ export function Controls(props: { position: Vector3, [key: string]: any }) {
   }
 
   useEffect(() => {
-    props.canvasRef?.current?.addEventListener('wheel', onMouseWheel);
+    props.canvasRef?.current?.addEventListener('wheel', onMouseWheel, { passive: true });
     return () => {
       props.canvasRef?.current?.removeEventListener('wheel', onMouseWheel)
     };

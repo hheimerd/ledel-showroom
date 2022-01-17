@@ -24,13 +24,15 @@
     "videos": [
       "https://www.youtube.com/embed/ZzgELwZGSjA",
       "https://www.youtube.com/embed/FF2Pxu3GbAo"
-    ]
+    ],
+    "modelUrl": "/models/GLB/l_trade_II.glb"
   },
   {
     "title":"L-store",
     "description":"Светодиодный светильник «L-store» предназначен для внутреннего освещения торговых пространств. <br><br> Светильник устанавливается на шинопровод. Это позволяет ему легко подстраиваться под  особенности любого  объекта. Для того, чтобы изменить расположение светильников,  понадобится минимум времени и усилий. <br><br> Разнообразие диаграмм светового распределения: Д, ГСП105, ГСП05, ГСП2 делает  этот светильник многофункциональным решением для ритейла",
     "link":"https://ledel.ru/products/trade-light/l-store.html",
-    "slides":null
+    "slides":null,
+    "modelUrl": "/models/GLB/L-store.glb"
   },
   {
     "title":"L-trade Standart",
@@ -53,7 +55,8 @@
         "href":"https:\/\/ledel.ru\/projects\/promyshlennoe-osveshchenie\/fabrika-nevskiy-konditer.html",
         "src":"photos\/L-trade_Standart_4.jpg"
       }
-    ]
+    ],
+    "modelUrl": "/models/GLB/l_trade_Standart.glb"
   },
   {
     "title":"L-spot",
@@ -62,7 +65,8 @@
     "videos": [
       "https://www.youtube.com/embed/RtFTvT6t2mg"
     ],
-    "slides":null
+    "slides":null,
+    "modelUrl": "/models/GLB/l-spot.glb"
   },
   {
     "title":"L-fusion Retail",
@@ -71,7 +75,8 @@
     "videos": [
       "https://www.youtube.com/embed/qWFTz_zBchQ"
     ],
-    "slides":null
+    "slides":null,
+    "modelUrl": "/models/GLB/L-fusion.glb"
   },
   {
     "title":"Radian NEW",
@@ -90,6 +95,7 @@
         "href":"https:\/\/ledel.ru\/projects\/osveshchenie-torgovykh-tsentrov\/tk-altair.html",
         "src":"photos\/Radian_3.jpg"
       }
-    ]
+    ],
+    "modelUrl": "/models/GLB/Radian.glb"
   }
 ]

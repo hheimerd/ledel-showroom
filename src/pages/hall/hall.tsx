@@ -8,7 +8,6 @@ import t_sphere2 from '../../spheres/hall/thumb/hall_2.png';
 import t_sphere3 from '../../spheres/hall/thumb/hall_3.png';
 import { Vector3 } from "three/src/math/Vector3";
 import { generateSteps } from "../generators";
-import { Box, Html } from "@react-three/drei";
 
 const spheres = [
   sphere1,
@@ -27,29 +26,29 @@ const steps = generateSteps(spheres, -8, USER_HEITHT, thumbs)
 
 const links = [
   {
-    path: '/commercial',
+    path: '/trade-light',
     position: new Vector3(0, 2, 4),
   },
   {
-    path: '/architecture',
+    path: '/architectural-light',
     initRotation: 180,
     position: new Vector3(0, 2, -4.3),
   },
   {
-    path: '/household', 
+    path: '/home-light', 
     initRotation: 180,
     position: new Vector3(-8, 2, 4),
   },
   {
-    path: '/street',
+    path: '/street-light',
     position: new Vector3(-8, 2, -4.3),
   },
   {
-    path: '/industrial',
+    path: '/industrial-light',
     position: new Vector3(-16, 2, 4),
   },
   {
-    path: '/office',
+    path: '/office-light',
     position: new Vector3(-16, 2, -4.3),
   },
 ] as T3DLink[]

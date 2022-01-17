@@ -16,7 +16,8 @@
         "href":"https:\/\/ledel.ru\/projects\/osveshchenie-torgovykh-tsentrov\/tk-altair.html",
         "src":"photos\/Radian_3.jpg"
       }
-    ]
+    ],
+    "modelUrl": "/models/GLB/Radian.glb"
   },
   {
     "title":"L-industry NEW 12",
@@ -36,14 +37,16 @@
         "href":"https:\/\/ledel.ru\/projects\/zhkkh-osveshchenie\/doska-pocheta.html",
         "src":"photos\/L-industry_NEW_12_3.jpg"
       }
-    ]
+    ],
+    "modelUrl": "/models/GLB/L-industry-NEW-12.glb"
   },
   {
     "title":"L-trade II 12",
     "description":"Многофункциональный светодиодный светильник L-trade II 12 предназначен для освещения  промышленных помещений, складов, объектов ЖКХ. <br><br> Светильник подходит для локальной подсветки рабочих зон в автосервисах и мастерских. <br><br> Возможно исполнение с низковольтным источником питания. <br><br> Запатентованный драйвер собственной разработки обеспечивает трехступенчатую защиту  светильника от скачков напряжения до 2 Кв и перегрева. Драйвер обеспечивает  максимальную эффективность использования электрической энергии и  высокий коэффициент мощности (λ) свыше 0,95",
     "link":"https://ledel.ru/products/home-light/L-trade-II-12.html",
     "videos":null,
-    "slides":null
+    "slides":null,
+    "modelUrl": "/models/GLB/l_trade_II.glb"
   },
   {
     "title":"L-one",
@@ -55,7 +58,8 @@
         "href":"https:\/\/ledel.ru\/projects\/osveshchenie-med-uchrezhdeniy\/perinatalnyy-tsentr.html",
         "src":"photos\/L-office3&L-school3&L-one.jpg"
       }
-    ]
+    ],
+    "modelUrl": "/models/GLB/L-one-5.glb"
   },
   {
     "title":"Sveteco NEW 8",
@@ -71,6 +75,7 @@
         "href":"https:\/\/ledel.ru\/projects\/zhkkh-osveshchenie\/smotrovaya-yama-dlya-osmotra-gruzovykh-avtomobiley-.html",
         "src":"photos\/Sveteco2.jpg"
       }
-    ]
+    ],
+    "modelUrl": "/models/GLB/Sveteco-NEW-8.glb"
   }
 ]

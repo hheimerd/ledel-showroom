@@ -23,21 +23,24 @@
         "href":"https:\/\/ledel.ru\/projects\/osveshchenie-sportivnykh-obektov\/osveshchenie-fitnes-tsentra-.html",
         "src":"photos\/L-office4.jpg"
       }
-    ]
+    ],
+    "modelUrl": "/models/GLB/L-office-55.glb"
   },
   {
     "title":"L-Office BIO",
     "description":"Светодиодный светильник L-Office BIO, совмещенный с устройством рециркуляционного типа  с УФ-лампами, предназначен для очищения воздуха в помещениях с постоянным  присутствием людей от вирусов и освещения офисных, жилых и промышленных помещений. <br><br> Обеззараживание происходит благодаря циркуляции воздуха через зону работы  газоразрядных бактерицидных УФ-ламп, с длиной волны ультрафиолетового излучения 254нм. <br><br> Лампы способны очистить и обеззаразить воздух без выделения озона. <br><br> Циркуляция воздуха обеспечивается встроенными вентиляторами",
     "link":"https://ledel.ru/products/office-light/l-office-bio.html",
     "videos":null,
-    "slides":null
+    "slides":null,
+    "modelUrl": "/models/GLB/L-office-BIO.glb"
   },
   {
     "title":"L-office Balance",
     "description":"Светодиодная панель для освещения офисно-административных пространств.  Оптическая система светильника обеспечивает равномерную засветку матового  рассеивателя без «слепящих» точек. <br><br> Светильник представлен в накладном и встраиваемом исполнении. Это позволяет  адаптировать его под любое пространство",
     "link":"https://ledel.ru/products/office-light/l-office-balance.html",
     "videos":null,
-    "slides":null
+    "slides":null,
+    "modelUrl": "/models/GLB/L-office-Balance.glb"
   },
   {
     "title":"L-school",
@@ -57,7 +60,8 @@
         "href":"https:\/\/ledel.ru\/projects\/osveshchenie-med-uchrezhdeniy\/perinatalnyy-tsentr.html",
         "src":"photos\/L-office3&L-school3&L-one.jpg"
       }
-    ]
+    ],
+    "modelUrl": "/models/GLB/L-school.glb"
   },
   {
     "title":"L-fusion Office",
@@ -66,6 +70,7 @@
     "videos": [
       "https://www.youtube.com/embed/qWFTz_zBchQ"
     ],
-    "slides":null
+    "slides":null,
+    "modelUrl": "/models/GLB/L-fusion.glb" 
   }
 ]

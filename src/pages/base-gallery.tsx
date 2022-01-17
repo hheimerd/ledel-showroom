@@ -74,7 +74,7 @@ export default function BaseGallery(props: {
         }}
         scale={new Vector3(2.3, 4, .1)}
         rotation={link.rotation || new Euler(0, 0, 0)}
-        text={`Нажмите, чтобы перейти в ${location?.label ?? 'эту локацию'}`}
+        text={`Нажмите, чтобы перейти в <b>${location?.label ?? 'эту локацию'}</b>`}
         position={link.position.clone()}
         key={i}
       />
@@ -108,7 +108,7 @@ export default function BaseGallery(props: {
       <Preloader progress={progress}  />
       
       <Canvas ref={canvasRef as any} shadows={true}>
-        <ambientLight rotation={[1,1,1]} position={[0, 10, 0]} intensity={3} color={'white'} castShadow />
+        <ambientLight rotation={[1,1,1]} position={[0, 10, 0]} intensity={3} color={'white'} />
         <Controls canvasRef={canvasRef} enableZoom={false} position={position} enableDamping maxDistance={.01} dampingFactor={0.3} initPosition={startPosition} />
         <Suspense fallback={
           <Suspense fallback={null}>

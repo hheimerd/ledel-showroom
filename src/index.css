@@ -37,13 +37,19 @@ code {
   font-family: PFBeatSansPro-SemiBold;
 }
 
+.model-viewer {
+  flex-direction: column;
+  height: 400px;
+  display: flex;
+} 
+
 .video {
   height: 400px;
   display: flex;
   flex-direction: column;
 }
 
-.video h2{
+.model-viewer h2, .video h2{
   font-family: PFBeatSansPro-SemiBold;
 }
 .ll{
@@ -177,7 +183,7 @@ canvas {
   justify-self: center;
   left: 40px;
 }
-.info h2{
+.info h2, .projects h2{
   font-family: PFBeatSansPro-SemiBold;
 }
 .info p{
@@ -185,7 +191,7 @@ canvas {
   font-size: 20px;
 }
 
-.video h2{
+.video h2, .projects h2, .model-viewer h2{
   position: relative;
   width: 420px;
   left: 40px;
@@ -193,13 +199,6 @@ canvas {
 
 .video-player{
   width: 500px;
-}
-
-.projects h2{
-  font-family: PFBeatSansPro-SemiBold;
-  position: relative;
-  width: 420px;
-  left: 40px;
 }
 
 .slider-video-wrapper, .slider-video {

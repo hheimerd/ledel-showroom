@@ -30,7 +30,7 @@ const thumbs = [
 
 const steps = generateSteps(spheres, stepLength, USER_HEITHT, thumbs)
 
-const stands = generateStands(info as PopUpProps[], stepLength, 2, 3.6,-3.4)
+const stands = generateStands(info as PopUpProps[], stepLength, 2, 3.8,-3.4)
 
 const links = [
   {
