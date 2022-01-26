@@ -6,10 +6,15 @@ import './slider.css';
 import './index.css';
 import { Info } from './ui/info';
 
-const initialValue = {
+export type initialValueType = {
+  camera: {
+    positionIdx: number;
+    rotation?: number;
+  };
+};
+const initialValue: initialValueType = {
   camera: {
     positionIdx: 0,
-    rotation: 180,
   }
 }
 

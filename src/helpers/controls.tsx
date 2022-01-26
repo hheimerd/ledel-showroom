@@ -14,7 +14,7 @@ export function Controls(props: { position: Vector3, [key: string]: any }) {
 
 
   useEffect(() => {
-    const offset = degToVec2(cameraConf.camera.rotation);
+    const offset = degToVec2(cameraConf.camera.rotation ?? 0);
     const initial = new Vector3(offset.x * 100, 0, offset.y * 100);
     camera.position.set(initial.x, initial.y, initial.z);
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -6,8 +6,16 @@ import Industrial from "./pages/industrial/industrial";
 import Office from "./pages/office/office";
 import Street from "./pages/street/street";
 
+
+export type Route = {
+  name: string;
+  component: JSX.Element;
+  label: string;
+  defaultCameraRotation?: number; 
+}
+
 // INDEX IS ID!
-export const ROUTES = [
+export const ROUTES: Route[] = [
   {
     name: '/',
     component: <Hall />,
@@ -17,6 +25,7 @@ export const ROUTES = [
   {
     name: '/industrial-light',
     component: <Industrial />,
+    defaultCameraRotation: 0,
     label: 'Промышленное освещение',
   },
   {
@@ -44,7 +53,7 @@ export const ROUTES = [
     name: '/architectural-light',
     component: <Architecture />,
     label: 'Архитектурное освещение',
-    defaultCameraRotation: 190
+    defaultCameraRotation: 185
   },
 ]
 

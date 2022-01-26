@@ -1,7 +1,7 @@
 import { Suspense, useContext, useMemo, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { useProgress } from '@react-three/drei';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Controls } from '../helpers/controls'
 import { VRSphere } from '../helpers/sphere'
 import { Vector3 } from 'three/src/math/Vector3';
@@ -53,6 +53,13 @@ export default function BaseGallery(props: {
   
   let startPosition = new Vector3(100, 0, 0)
 
+  const location = useLocation();
+  const currentRoute = ROUTES.find(r => r.name === location.pathname);
+  if (cameraConfig.camera.rotation === undefined)
+    cameraConfig.camera.rotation = currentRoute?.defaultCameraRotation ?? 0;
+  console.log(cameraConfig.camera.rotation);
+    
+
   const floorPoints = useMemo(() => (
     props.steps.map((st, i) => (
       <FloorPoint onClick={() => setPositionIdx(i)} position={st.pointPosition.clone()} key={i} />
@@ -68,7 +75,7 @@ export default function BaseGallery(props: {
       return (
       <LinkWall
         onClick={() => {
-          cameraConfig.camera.rotation = link.initRotation ?? 0
+          cameraConfig.camera.rotation = link.initRotation ?? undefined
           cameraConfig.camera.positionIdx = link.initPosition ?? 0
           nav(link.path);
         }}
@@ -94,7 +101,6 @@ export default function BaseGallery(props: {
     ))
   ), [props.stands])
 
-  // setSearchParams({ position: '100,0,0' })
   const { progress } = useProgress()
   return (
     <>
