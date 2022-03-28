@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { ErrorCubeFallback, LoadMesh } from "../helpers/geometry";
 
+
 export function StatusBar(props: { height?: number, color?: string }) {
   const { progress } = useProgress()
 
@@ -30,7 +31,7 @@ export default function ModelViewer(props: { url: string }) {
         <PerspectiveCamera makeDefault position={[0, 5, 10]} />
         <OrbitControls enableZoom={false} enableRotate autoRotate />
         <Suspense fallback={null}>
-          <Environment preset="city" />
+          <Environment files="/potsdamer_platz_1k.hdr" />
           <Center>
             <ErrorBoundary FallbackComponent={ErrorCubeFallback}>
               <LoadMesh path={props.url} size={10}></LoadMesh>

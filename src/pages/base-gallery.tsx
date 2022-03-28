@@ -113,7 +113,7 @@ export default function BaseGallery(props: {
       }
       <Preloader progress={progress}  />
       
-      <Canvas ref={canvasRef as any} shadows={true}>
+      <Canvas ref={canvasRef as any} shadows={true} >
         <ambientLight rotation={[1,1,1]} position={[0, 10, 0]} intensity={3} color={'white'} />
         <Controls canvasRef={canvasRef} enableZoom={false} position={position} enableDamping maxDistance={.01} dampingFactor={0.3} initPosition={startPosition} />
         <Suspense fallback={
